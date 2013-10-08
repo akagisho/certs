@@ -18,33 +18,9 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :organization, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :organization, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :issuer, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :issuer, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :expired_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.datetime_select :expired_at, :class => 'datetime_select' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :checked_at, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.datetime_select :checked_at, :class => 'datetime_select' %>
-    </div>
-  </div>
-  <div class="control-group">
     <%= f.label :note, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :note, :class => 'text_area' %>
+      <%= f.text_area :note, :class => 'text_area', :rows => 3 %>
     </div>
   </div>
 
