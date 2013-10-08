@@ -1,0 +1,37 @@
+<h1>Listing certificates</h1>
+
+<table>
+  <tr>
+    <th>Common name</th>
+    <th>Ipv4addr</th>
+    <th>Port</th>
+    <th>Organization</th>
+    <th>Issuer</th>
+    <th>Expired at</th>
+    <th>Checked at</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @certificates.each do |certificate| %>
+  <tr>
+    <td><%= certificate.common_name %></td>
+    <td><%= certificate.ipv4addr %></td>
+    <td><%= certificate.port %></td>
+    <td><%= certificate.organization %></td>
+    <td><%= certificate.issuer %></td>
+    <td><%= certificate.expired_at %></td>
+    <td><%= certificate.checked_at %></td>
+    <td><%= certificate.note %></td>
+    <td><%= link_to 'Show', certificate %></td>
+    <td><%= link_to 'Edit', edit_certificate_path(certificate) %></td>
+    <td><%= link_to 'Destroy', certificate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Certificate', new_certificate_path %>

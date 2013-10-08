@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Common name:</b>
+  <%= @certificate.common_name %>
+</p>
+
+<p>
+  <b>Ipv4addr:</b>
+  <%= @certificate.ipv4addr %>
+</p>
+
+<p>
+  <b>Port:</b>
+  <%= @certificate.port %>
+</p>
+
+<p>
+  <b>Organization:</b>
+  <%= @certificate.organization %>
+</p>
+
+<p>
+  <b>Issuer:</b>
+  <%= @certificate.issuer %>
+</p>
+
+<p>
+  <b>Expired at:</b>
+  <%= @certificate.expired_at %>
+</p>
+
+<p>
+  <b>Checked at:</b>
+  <%= @certificate.checked_at %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @certificate.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
+<%= link_to 'Back', certificates_path %>

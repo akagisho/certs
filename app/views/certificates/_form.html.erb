@@ -1,0 +1,49 @@
+<%= form_for(@certificate) do |f| %>
+  <% if @certificate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+
+      <ul>
+      <% @certificate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :common_name %><br />
+    <%= f.text_field :common_name %>
+  </div>
+  <div class="field">
+    <%= f.label :ipv4addr %><br />
+    <%= f.text_field :ipv4addr %>
+  </div>
+  <div class="field">
+    <%= f.label :port %><br />
+    <%= f.number_field :port %>
+  </div>
+  <div class="field">
+    <%= f.label :organization %><br />
+    <%= f.text_field :organization %>
+  </div>
+  <div class="field">
+    <%= f.label :issuer %><br />
+    <%= f.text_field :issuer %>
+  </div>
+  <div class="field">
+    <%= f.label :expired_at %><br />
+    <%= f.datetime_select :expired_at %>
+  </div>
+  <div class="field">
+    <%= f.label :checked_at %><br />
+    <%= f.datetime_select :checked_at %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

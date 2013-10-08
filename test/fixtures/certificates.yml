@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  common_name: MyString
+  ipv4addr: MyString
+  port: 1
+  organization: MyString
+  issuer: MyString
+  expired_at: 2013-10-08 23:59:54
+  checked_at: 2013-10-08 23:59:54
+  note: MyText
+
+two:
+  common_name: MyString
+  ipv4addr: MyString
+  port: 1
+  organization: MyString
+  issuer: MyString
+  expired_at: 2013-10-08 23:59:54
+  checked_at: 2013-10-08 23:59:54
+  note: MyText
