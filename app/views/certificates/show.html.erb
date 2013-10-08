@@ -1,45 +1,35 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Certificate -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>Common name:</b>
-  <%= @certificate.common_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:common_name) %>:</strong></dt>
+  <dd><%= @certificate.common_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ipv4addr) %>:</strong></dt>
+  <dd><%= @certificate.ipv4addr %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:port) %>:</strong></dt>
+  <dd><%= @certificate.port %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:organization) %>:</strong></dt>
+  <dd><%= @certificate.organization %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:issuer) %>:</strong></dt>
+  <dd><%= @certificate.issuer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:expired_at) %>:</strong></dt>
+  <dd><%= @certificate.expired_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:checked_at) %>:</strong></dt>
+  <dd><%= @certificate.checked_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:note) %>:</strong></dt>
+  <dd><%= @certificate.note %></dd>
+</dl>
 
-<p>
-  <b>Ipv4addr:</b>
-  <%= @certificate.ipv4addr %>
-</p>
-
-<p>
-  <b>Port:</b>
-  <%= @certificate.port %>
-</p>
-
-<p>
-  <b>Organization:</b>
-  <%= @certificate.organization %>
-</p>
-
-<p>
-  <b>Issuer:</b>
-  <%= @certificate.issuer %>
-</p>
-
-<p>
-  <b>Expired at:</b>
-  <%= @certificate.expired_at %>
-</p>
-
-<p>
-  <b>Checked at:</b>
-  <%= @certificate.checked_at %>
-</p>
-
-<p>
-  <b>Note:</b>
-  <%= @certificate.note %>
-</p>
-
-
-<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
-<%= link_to 'Back', certificates_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              certificates_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_certificate_path(@certificate), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              certificate_path(@certificate),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
