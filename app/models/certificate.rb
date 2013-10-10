@@ -1,3 +1,5 @@
+include CertUtil
+
 class Certificate < ActiveRecord::Base
   attr_accessible :checked_at, :common_name, :expired_at, :ipv4addr, :issuer, :note, :organization, :port
 
@@ -18,4 +20,17 @@ class Certificate < ActiveRecord::Base
       :greater_than => 0,
       :less_than => 65536
     }
+
+  def update_expiration
+    host = !ipv4addr.nil? && !ipv4addr.empty? ? ipv4addr : common_name
+    cert = CertUtil.get_cert(host, port)
+    subject = CertUtil.parse_subject(cert.subject.to_s)
+    issuer = CertUtil.parse_subject(cert.issuer.to_s)
+
+    self.organization = subject['O']
+    self.issuer = issuer['O']
+    self.expired_at = cert.not_after
+    self.checked_at = Time.now
+    self.save
+  end
 end
