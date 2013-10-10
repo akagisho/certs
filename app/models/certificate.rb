@@ -21,6 +21,14 @@ class Certificate < ActiveRecord::Base
       :less_than => 65536
     }
 
+  def life
+    life = nil
+    if self.expired_at.class.to_s == 'ActiveSupport::TimeWithZone' then
+      life = ((self.expired_at - Time.now) / (60*60*24)).to_i;
+    end
+    return life
+  end
+
   def update_expiration
     host = !ipv4addr.nil? && !ipv4addr.empty? ? ipv4addr : common_name
     cert = CertUtil.get_cert(host, port)
