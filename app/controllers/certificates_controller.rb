@@ -2,7 +2,7 @@ class CertificatesController < ApplicationController
   # GET /certificates
   # GET /certificates.json
   def index
-    @certificates = Certificate.all
+    @certificates = Certificate.order('expired_at, common_name')
 
     respond_to do |format|
       format.html # index.html.erb
