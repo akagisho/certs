@@ -41,3 +41,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'kaminari'
+gem 'delayed_job_active_record'
+gem 'daemons'

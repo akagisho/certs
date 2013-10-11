@@ -44,7 +44,7 @@ class CertificatesController < ApplicationController
 
     respond_to do |format|
       if @certificate.save
-        @certificate.update_expiration
+        @certificate.delay.update_expiration
         format.html { redirect_to @certificate, notice: 'Certificate was successfully created.' }
         format.json { render json: @certificate, status: :created, location: @certificate }
       else
@@ -61,7 +61,7 @@ class CertificatesController < ApplicationController
 
     respond_to do |format|
       if @certificate.update_attributes(params[:certificate])
-        @certificate.update_expiration
+        @certificate.delay.update_expiration
         format.html { redirect_to @certificate, notice: 'Certificate was successfully updated.' }
         format.json { head :no_content }
       else
