@@ -40,6 +40,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+group :production do
+  gem 'unicorn'
+end
+
 gem 'kaminari'
 gem 'delayed_job_active_record'
 gem 'daemons'
