@@ -67,6 +67,10 @@ Make nginx's configuration file.
         error_log   /var/www/certs/log/error.log;
     
         location / {
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header Client-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
             proxy_pass http://certs;
         }
     
