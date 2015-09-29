@@ -4,7 +4,7 @@ require 'timeout'
 include OpenSSL
 
 module CertUtil
-  def get_cert(host, port = nil, timeout = 10)
+  def get_cert(host, common_name = nil, port = nil, timeout = 10)
     port = 443 if port.nil?
 
     ssl_conf = SSL::SSLContext.new()
@@ -12,6 +12,7 @@ module CertUtil
       timeout(timeout) {
         @soc = TCPSocket.new(host.to_s, port.to_i)
         @ssl = SSL::SSLSocket.new(@soc, ssl_conf)
+        @ssl.hostname = common_name
         @ssl.connect
       }
 

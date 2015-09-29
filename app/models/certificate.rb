@@ -32,7 +32,7 @@ class Certificate < ActiveRecord::Base
 
   def update_expiration
     host = !ipv4addr.nil? && !ipv4addr.empty? ? ipv4addr : common_name
-    cert = CertUtil.get_cert(host, port)
+    cert = CertUtil.get_cert(host, common_name, port)
     subject = CertUtil.parse_subject(cert.subject.to_s)
     issuer = CertUtil.parse_subject(cert.issuer.to_s)
 
